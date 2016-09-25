@@ -1,7 +1,56 @@
-Major changes in 1.28.2
+Major changes in 1.30.0
 =======================
-* udisks2: Fix crash when mounting encrypted volume
 * Translation updates
+
+Major changes in 1.29.92
+========================
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.29.91
+========================
+* dav: Various mount operation fixes
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.29.90
+========================
+* build: Use upstream gettext instead intltool
+* build: Use autoreconf instead custom script
+* dnssd: Fix crashes when mount failed
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.29.4
+=======================
+* Introduce an admin gvfs backend based on polkit
+* gvfs-open: Fix spawning of applications with dashses in their app IDs
+* daemon: Fix crashes caused by NULL certificates
+* daemon: Set G_FILE_ATTRIBUTE_FILESYSTEM_REMOTE attribute
+* Several smaller bugfixes and improvements
+* Translation updates
+
+Major changes in 1.29.3
+=======================
+* afc: Many improvements and fixes for iOS support 
+* fuse: Add possibility to enable debug output
+* test: Skip tests if dependencies are missing
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.29.2
+=======================
+* client: Fix missing mount prefix in cached fuse paths
+* monitor: Add g_drive_is_removable() support
+* dav: Fix IPv6 address handling
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.29.1
+=======================
+* udisks2: Fix crashes when mounting encrypted volume
+* mtp: Refactor event handling in order to fix unmount crashes
+* Several smaller bugfixes
 
 Major changes in 1.28.1
 =======================
