@@ -4,7 +4,7 @@
 #
 Name     : gvfs
 Version  : 1.30.2
-Release  : 4
+Release  : 5
 URL      : http://ftp.gnome.org/pub/gnome/sources/gvfs/1.30/gvfs-1.30.2.tar.xz
 Source0  : http://ftp.gnome.org/pub/gnome/sources/gvfs/1.30/gvfs-1.30.2.tar.xz
 Summary  : No detailed summary available
