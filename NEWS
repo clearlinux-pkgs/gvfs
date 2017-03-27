@@ -1,17 +1,64 @@
-Major changes in 1.30.2
-=========================
-* trash: Do not crash if home mount isn't found
-* admin: Fix polkit errors caused by redundant translations
+Major changes in 1.32.0
+=======================
 * Translation updates
 
-Major changes in 1.30.1.1
-=========================
-* Revert udisks2 patches causing unwanted regressions
+Major changes in 1.31.92
+========================
+* Translation updates
 
-Major changes in 1.30.1
+Major changes in 1.31.91
+========================
+* Translation updates
+
+Major changes in 1.31.90
+========================
+* recent: Set G_FILE_ATTRIBUTE_RECENT_MODIFED attribute
+* client: Ignore everything after first colon in userinfo
+* Stability improvements for force unmount procedure
+* Port several parts to GTask
+* Various logging improvements
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.31.4
 =======================
-* udisks2: Fix handling of volumes with multiple mountpoints
-* udisks2: Filter out system mounts
+* sftp: Limit writes to 32768 bytes
+* udisks2: Improve unmount notifications
+* daemon: Bump maximum read channel buffer size
+* recent: Fix crashes when DISPLAY is not set
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.31.3
+=======================
+* dnssd: Fix crashes for uris with colons
+* trash: Correctly determine fs type for paths with symlinks
+* gdaemonfile: Pass GFileCreateFlags in write operations
+* metadata: Various performance improvements
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.31.2
+=======================
+* dnssd: Fix crashes and leaks when mount fails
+* network: Fix crashes when mount fails
+* udisks2: Fix misleading notification when unmounting
+* smb: Fix IPv6 uri handling
+* smb: Improve read performance
+* udisks2: Add support for uuid
+* trash: Do not crash if home mount isn't found
+* admin: Fix polkit errors caused by redundant translations
+* Port several parts to GTask
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.31.1
+=======================
+* udisks2: Improve handling of volumes with multiple mountpoints
+* man: Various man page updates
+* hal: Drop hal volume monitor
+* programs: Deprecate gvfs utils in favour of new gio tool
+* Several smaller bugfixes
 * Translation updates
 
 Major changes in 1.30.0
