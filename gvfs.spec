@@ -4,7 +4,7 @@
 #
 Name     : gvfs
 Version  : 1.32.1
-Release  : 8
+Release  : 9
 URL      : https://download.gnome.org/sources/gvfs/1.32/gvfs-1.32.1.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.32/gvfs-1.32.1.tar.xz
 Summary  : No detailed summary available
@@ -40,8 +40,11 @@ BuildRequires : pkgconfig(libsystemd)
 BuildRequires : pkgconfig(libudev)
 BuildRequires : pkgconfig(libusb-1.0)
 BuildRequires : pkgconfig(libxml-2.0)
+BuildRequires : pkgconfig(polkit-gobject-1)
+BuildRequires : pkgconfig(smbclient)
 BuildRequires : pkgconfig(systemd)
 BuildRequires : python3-dev
+BuildRequires : samba-dev
 BuildRequires : sed
 BuildRequires : valgrind
 
@@ -121,7 +124,7 @@ locales components for the gvfs package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1491837979
+export SOURCE_DATE_EPOCH=1491839360
 %configure --disable-static --disable-gphoto2 \
 --disable-udisks2 \
 --disable-goa \
@@ -129,7 +132,7 @@ export SOURCE_DATE_EPOCH=1491837979
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1491837979
+export SOURCE_DATE_EPOCH=1491839360
 rm -rf %{buildroot}
 %make_install
 %find_lang gvfs
@@ -173,6 +176,8 @@ rm -rf %{buildroot}
 /usr/libexec/gvfsd-network
 /usr/libexec/gvfsd-recent
 /usr/libexec/gvfsd-sftp
+/usr/libexec/gvfsd-smb
+/usr/libexec/gvfsd-smb-browse
 /usr/libexec/gvfsd-trash
 
 %files config
@@ -183,9 +188,11 @@ rm -rf %{buildroot}
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/GConf/gsettings/gvfs-smb.convert
 /usr/share/dbus-1/services/org.gtk.vfs.Daemon.service
 /usr/share/dbus-1/services/org.gtk.vfs.Metadata.service
 /usr/share/glib-2.0/schemas/org.gnome.system.gvfs.enums.xml
+/usr/share/glib-2.0/schemas/org.gnome.system.smb.gschema.xml
 /usr/share/gvfs/mounts/afp-browse.mount
 /usr/share/gvfs/mounts/afp.mount
 /usr/share/gvfs/mounts/archive.mount
@@ -200,6 +207,8 @@ rm -rf %{buildroot}
 /usr/share/gvfs/mounts/network.mount
 /usr/share/gvfs/mounts/recent.mount
 /usr/share/gvfs/mounts/sftp.mount
+/usr/share/gvfs/mounts/smb-browse.mount
+/usr/share/gvfs/mounts/smb.mount
 /usr/share/gvfs/mounts/trash.mount
 /usr/share/polkit-1/actions/org.gtk.vfs.file-operations.policy
 /usr/share/polkit-1/rules.d/org.gtk.vfs.file-operations.rules
