@@ -4,7 +4,7 @@
 #
 Name     : gvfs
 Version  : 1.32.1
-Release  : 9
+Release  : 10
 URL      : https://download.gnome.org/sources/gvfs/1.32/gvfs-1.32.1.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.32/gvfs-1.32.1.tar.xz
 Summary  : No detailed summary available
@@ -124,7 +124,14 @@ locales components for the gvfs package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1491839360
+export SOURCE_DATE_EPOCH=1492279464
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto -fno-semantic-interposition "
+export FCFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto -fno-semantic-interposition "
+export FFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto -fno-semantic-interposition "
 %configure --disable-static --disable-gphoto2 \
 --disable-udisks2 \
 --disable-goa \
@@ -132,7 +139,7 @@ export SOURCE_DATE_EPOCH=1491839360
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1491839360
+export SOURCE_DATE_EPOCH=1492279464
 rm -rf %{buildroot}
 %make_install
 %find_lang gvfs
