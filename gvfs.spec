@@ -4,7 +4,7 @@
 #
 Name     : gvfs
 Version  : 1.32.1
-Release  : 14
+Release  : 15
 URL      : https://download.gnome.org/sources/gvfs/1.32/gvfs-1.32.1.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.32/gvfs-1.32.1.tar.xz
 Summary  : No detailed summary available
@@ -123,8 +123,11 @@ locales components for the gvfs package.
 %setup -q -n gvfs-1.32.1
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1492279464
+export SOURCE_DATE_EPOCH=1493918845
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -134,12 +137,12 @@ export FFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sect
 export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto -fno-semantic-interposition "
 %configure --disable-static --disable-gphoto2 \
 --disable-udisks2 \
---disable-goa \
+--enable-goa \
 --disable-admin
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1492279464
+export SOURCE_DATE_EPOCH=1493918845
 rm -rf %{buildroot}
 %make_install
 %find_lang gvfs
@@ -167,6 +170,7 @@ rm -rf %{buildroot}
 /usr/bin/gvfs-set-attribute
 /usr/bin/gvfs-trash
 /usr/bin/gvfs-tree
+/usr/libexec/gvfs-goa-volume-monitor
 /usr/libexec/gvfsd
 /usr/libexec/gvfsd-afp
 /usr/libexec/gvfsd-afp-browse
@@ -190,6 +194,7 @@ rm -rf %{buildroot}
 %files config
 %defattr(-,root,root,-)
 /usr/lib/systemd/user/gvfs-daemon.service
+/usr/lib/systemd/user/gvfs-goa-volume-monitor.service
 /usr/lib/systemd/user/gvfs-metadata.service
 /usr/lib/tmpfiles.d/gvfsd-fuse-tmpfiles.conf
 
@@ -197,6 +202,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 /usr/share/GConf/gsettings/gvfs-smb.convert
 /usr/share/dbus-1/services/org.gtk.vfs.Daemon.service
+/usr/share/dbus-1/services/org.gtk.vfs.GoaVolumeMonitor.service
 /usr/share/dbus-1/services/org.gtk.vfs.Metadata.service
 /usr/share/glib-2.0/schemas/org.gnome.system.gvfs.enums.xml
 /usr/share/glib-2.0/schemas/org.gnome.system.smb.gschema.xml
@@ -217,6 +223,7 @@ rm -rf %{buildroot}
 /usr/share/gvfs/mounts/smb-browse.mount
 /usr/share/gvfs/mounts/smb.mount
 /usr/share/gvfs/mounts/trash.mount
+/usr/share/gvfs/remote-volume-monitors/goa.monitor
 /usr/share/polkit-1/actions/org.gtk.vfs.file-operations.policy
 /usr/share/polkit-1/rules.d/org.gtk.vfs.file-operations.rules
 
