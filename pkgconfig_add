@@ -2,3 +2,4 @@
 # not get picked up automatically. One name per line, no whitespace.
 goa-1.0
 libgdata
+gtk+-3.0
