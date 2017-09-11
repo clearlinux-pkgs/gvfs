@@ -10,3 +10,4 @@ libbluray
 gdu
 udisks2
 avahi-glib
+avahi-client

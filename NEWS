@@ -1,11 +1,52 @@
-Major changes in 1.32.1
+Major changes in 1.34.0
 =======================
+* Translation updates
+
+Major changes in 1.33.92
+========================
+* Translation updates
+
+Major changes in 1.33.91
+========================
+* daemon: Avoid overflowing when querying for filesystem info
+* proxy: Fix shadow mount handling for equal paths
+* gdaemonfile: Fix g_file_equal for different mount_prefix
+* gdaemonfile: Fix relative path handling
+* client: Fix crash when calculating a relative path
+* channel: Set sockets as nonblocking to prevent deadlocks when copying
+* google: Report FS total size and free space
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.33.90
+========================
+* admin: Require mounting for each client explicitly
+* dav: Fix DAV implementation stripping spaces
+* gdaemonfileenumerator: Fix crashes in synchronous enumerator code
+* goa: Fix password-based authentication
+* Translation updates
+
+Major changes in 1.33.3
+=======================
+* Do not sent user invisible mounts in order to speed up g_volume_monitor_get
+* mtp: Remove avoidance of file push for big files for better performance
+* Various build fixes and cleanups
+* Port several parts to GTask
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.33.1
+========================
+* recent: Port from GtkRecentManager to GBookmarkFile (drop GTK+ dependency)
+* sftp: Handle SecurID password prompt
 * common: Fix potential crash caused by missing g_strdup
 * fuse: Prevent potential crash if file handle is not set
 * sftp: Prevent potential crash in case of parsing error
 * google: Prevent potential crashes if resolve_dir fails
 * gphoto2: Fix x-content-types setup
 * google: Fix reported file size
+* Port several parts to GTask
+* Several smaller bugfixes
 * Translation updates
 
 Major changes in 1.32.0
