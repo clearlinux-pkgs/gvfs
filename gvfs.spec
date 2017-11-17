@@ -4,7 +4,7 @@
 #
 Name     : gvfs
 Version  : 1.34.1
-Release  : 18
+Release  : 19
 URL      : https://download.gnome.org/sources/gvfs/1.34/gvfs-1.34.1.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.34/gvfs-1.34.1.tar.xz
 Summary  : No detailed summary available
@@ -110,7 +110,6 @@ doc components for the gvfs package.
 Summary: lib components for the gvfs package.
 Group: Libraries
 Requires: gvfs-data
-Requires: gvfs-config
 
 %description lib
 lib components for the gvfs package.
@@ -132,7 +131,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1506970426
+export SOURCE_DATE_EPOCH=1510947791
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -147,7 +146,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1506970426
+export SOURCE_DATE_EPOCH=1510947791
 rm -rf %{buildroot}
 %make_install
 %find_lang gvfs
