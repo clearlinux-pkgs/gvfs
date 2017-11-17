@@ -4,6 +4,7 @@ libgpg-error-dev
 libgcrypt-dev
 libgdata-dev
 libarchive-dev
+libmtp-dev
 python3-dev
 valgrind
 samba-dev

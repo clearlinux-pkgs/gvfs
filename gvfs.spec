@@ -4,7 +4,7 @@
 #
 Name     : gvfs
 Version  : 1.34.1
-Release  : 19
+Release  : 20
 URL      : https://download.gnome.org/sources/gvfs/1.34/gvfs-1.34.1.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.34/gvfs-1.34.1.tar.xz
 Summary  : No detailed summary available
@@ -24,6 +24,7 @@ BuildRequires : libarchive-dev
 BuildRequires : libgcrypt-dev
 BuildRequires : libgdata-dev
 BuildRequires : libgpg-error-dev
+BuildRequires : libmtp-dev
 BuildRequires : libxslt-bin
 BuildRequires : perl(XML::Parser)
 BuildRequires : pkgconfig(fuse)
@@ -131,7 +132,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1510947791
+export SOURCE_DATE_EPOCH=1510948146
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -146,7 +147,7 @@ export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1510947791
+export SOURCE_DATE_EPOCH=1510948146
 rm -rf %{buildroot}
 %make_install
 %find_lang gvfs
@@ -175,6 +176,7 @@ rm -rf %{buildroot}
 /usr/bin/gvfs-trash
 /usr/bin/gvfs-tree
 /usr/libexec/gvfs-goa-volume-monitor
+/usr/libexec/gvfs-mtp-volume-monitor
 /usr/libexec/gvfsd
 /usr/libexec/gvfsd-afp
 /usr/libexec/gvfsd-afp-browse
@@ -188,6 +190,7 @@ rm -rf %{buildroot}
 /usr/libexec/gvfsd-http
 /usr/libexec/gvfsd-localtest
 /usr/libexec/gvfsd-metadata
+/usr/libexec/gvfsd-mtp
 /usr/libexec/gvfsd-network
 /usr/libexec/gvfsd-recent
 /usr/libexec/gvfsd-sftp
@@ -200,6 +203,7 @@ rm -rf %{buildroot}
 /usr/lib/systemd/user/gvfs-daemon.service
 /usr/lib/systemd/user/gvfs-goa-volume-monitor.service
 /usr/lib/systemd/user/gvfs-metadata.service
+/usr/lib/systemd/user/gvfs-mtp-volume-monitor.service
 /usr/lib/tmpfiles.d/gvfsd-fuse-tmpfiles.conf
 
 %files data
@@ -207,6 +211,7 @@ rm -rf %{buildroot}
 /usr/share/GConf/gsettings/gvfs-smb.convert
 /usr/share/dbus-1/services/org.gtk.vfs.Daemon.service
 /usr/share/dbus-1/services/org.gtk.vfs.GoaVolumeMonitor.service
+/usr/share/dbus-1/services/org.gtk.vfs.MTPVolumeMonitor.service
 /usr/share/dbus-1/services/org.gtk.vfs.Metadata.service
 /usr/share/glib-2.0/schemas/org.gnome.system.gvfs.enums.xml
 /usr/share/glib-2.0/schemas/org.gnome.system.smb.gschema.xml
@@ -221,6 +226,7 @@ rm -rf %{buildroot}
 /usr/share/gvfs/mounts/google.mount
 /usr/share/gvfs/mounts/http.mount
 /usr/share/gvfs/mounts/localtest.mount
+/usr/share/gvfs/mounts/mtp.mount
 /usr/share/gvfs/mounts/network.mount
 /usr/share/gvfs/mounts/recent.mount
 /usr/share/gvfs/mounts/sftp.mount
@@ -228,6 +234,7 @@ rm -rf %{buildroot}
 /usr/share/gvfs/mounts/smb.mount
 /usr/share/gvfs/mounts/trash.mount
 /usr/share/gvfs/remote-volume-monitors/goa.monitor
+/usr/share/gvfs/remote-volume-monitors/mtp.monitor
 
 %files dev
 %defattr(-,root,root,-)
