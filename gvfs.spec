@@ -4,7 +4,7 @@
 #
 Name     : gvfs
 Version  : 1.34.1
-Release  : 21
+Release  : 23
 URL      : https://download.gnome.org/sources/gvfs/1.34/gvfs-1.34.1.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.34/gvfs-1.34.1.tar.xz
 Summary  : No detailed summary available
@@ -49,6 +49,7 @@ BuildRequires : pkgconfig(libxml-2.0)
 BuildRequires : pkgconfig(polkit-gobject-1)
 BuildRequires : pkgconfig(smbclient)
 BuildRequires : pkgconfig(systemd)
+BuildRequires : pkgconfig(udisks2)
 BuildRequires : python3-dev
 BuildRequires : samba-dev
 BuildRequires : sed
@@ -132,7 +133,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1511551648
+export SOURCE_DATE_EPOCH=1513296505
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -141,13 +142,12 @@ export FCFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sec
 export FFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
 %configure --disable-static --disable-gphoto2 \
---disable-udisks2 \
 --enable-goa \
 --disable-admin
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1511551648
+export SOURCE_DATE_EPOCH=1513296505
 rm -rf %{buildroot}
 %make_install
 %find_lang gvfs
@@ -177,6 +177,7 @@ rm -rf %{buildroot}
 /usr/bin/gvfs-tree
 /usr/libexec/gvfs-goa-volume-monitor
 /usr/libexec/gvfs-mtp-volume-monitor
+/usr/libexec/gvfs-udisks2-volume-monitor
 /usr/libexec/gvfsd
 /usr/libexec/gvfsd-afp
 /usr/libexec/gvfsd-afp-browse
@@ -204,6 +205,7 @@ rm -rf %{buildroot}
 /usr/lib/systemd/user/gvfs-goa-volume-monitor.service
 /usr/lib/systemd/user/gvfs-metadata.service
 /usr/lib/systemd/user/gvfs-mtp-volume-monitor.service
+/usr/lib/systemd/user/gvfs-udisks2-volume-monitor.service
 /usr/lib/tmpfiles.d/gvfsd-fuse-tmpfiles.conf
 
 %files data
@@ -213,6 +215,7 @@ rm -rf %{buildroot}
 /usr/share/dbus-1/services/org.gtk.vfs.GoaVolumeMonitor.service
 /usr/share/dbus-1/services/org.gtk.vfs.MTPVolumeMonitor.service
 /usr/share/dbus-1/services/org.gtk.vfs.Metadata.service
+/usr/share/dbus-1/services/org.gtk.vfs.UDisks2VolumeMonitor.service
 /usr/share/glib-2.0/schemas/org.gnome.system.gvfs.enums.xml
 /usr/share/glib-2.0/schemas/org.gnome.system.smb.gschema.xml
 /usr/share/gvfs/mounts/afp-browse.mount
@@ -235,6 +238,7 @@ rm -rf %{buildroot}
 /usr/share/gvfs/mounts/trash.mount
 /usr/share/gvfs/remote-volume-monitors/goa.monitor
 /usr/share/gvfs/remote-volume-monitors/mtp.monitor
+/usr/share/gvfs/remote-volume-monitors/udisks2.monitor
 
 %files dev
 %defattr(-,root,root,-)

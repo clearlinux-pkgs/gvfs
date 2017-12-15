@@ -1,4 +1,3 @@
 --disable-gphoto2
---disable-udisks2
 --enable-goa
 --disable-admin

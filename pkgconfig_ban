@@ -8,6 +8,5 @@ libimobiledevice-1.0
 libcdio_paranoia
 libbluray
 gdu
-udisks2
 avahi-glib
 avahi-client
