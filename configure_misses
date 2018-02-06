@@ -1,7 +1,4 @@
-Configure miss: struct stat.st_mtimensec
 Configure miss: struct stat.st_atimensec
 Configure miss: struct stat.st_ctimensec
 Configure miss: openpty
 Configure miss: AVAHI
-Configure miss: struct statfs.f_fstypename
-Configure miss: struct statvfs.f_basetype
