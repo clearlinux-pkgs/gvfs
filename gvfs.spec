@@ -4,7 +4,7 @@
 #
 Name     : gvfs
 Version  : 1.36.0
-Release  : 27
+Release  : 28
 URL      : https://download.gnome.org/sources/gvfs/1.36/gvfs-1.36.0.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.36/gvfs-1.36.0.tar.xz
 Summary  : No detailed summary available
@@ -128,7 +128,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1522118193
+export SOURCE_DATE_EPOCH=1522118385
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -136,7 +136,7 @@ export CFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sect
 export FCFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
-CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain -Dadmin=false -Ddnssd=false -Dgoogle=false -Dafc=false -Dbluray=false -Dcdda=false -Dnfs=false builddir
+CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain -Dadmin=false -Ddnssd=false -Dafc=false -Dbluray=false -Dcdda=false -Dnfs=false builddir
 ninja -v -C builddir
 
 %install
@@ -161,6 +161,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/libexec/gvfsd-dav
 /usr/libexec/gvfsd-ftp
 /usr/libexec/gvfsd-fuse
+/usr/libexec/gvfsd-google
 /usr/libexec/gvfsd-gphoto2
 /usr/libexec/gvfsd-http
 /usr/libexec/gvfsd-localtest
@@ -202,6 +203,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/share/gvfs/mounts/dav.mount
 /usr/share/gvfs/mounts/ftp.mount
 /usr/share/gvfs/mounts/ftps.mount
+/usr/share/gvfs/mounts/google.mount
 /usr/share/gvfs/mounts/gphoto2.mount
 /usr/share/gvfs/mounts/http.mount
 /usr/share/gvfs/mounts/localtest.mount
