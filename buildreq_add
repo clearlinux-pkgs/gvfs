@@ -8,3 +8,5 @@ libmtp-dev
 python3-dev
 valgrind
 samba-dev
+libgphoto2-dev
+openssh
