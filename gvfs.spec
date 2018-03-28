@@ -4,7 +4,7 @@
 #
 Name     : gvfs
 Version  : 1.36.0
-Release  : 30
+Release  : 31
 URL      : https://download.gnome.org/sources/gvfs/1.36/gvfs-1.36.0.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.36/gvfs-1.36.0.tar.xz
 Summary  : No detailed summary available
@@ -130,7 +130,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1522247090
+export SOURCE_DATE_EPOCH=1522247256
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -144,10 +144,6 @@ ninja -v -C builddir
 %install
 DESTDIR=%{buildroot} ninja -C builddir install
 %find_lang gvfs
-## make_install_append content
-mkdir -p %{buildroot}/usr/share/gettext/its
-cp gettext/its/polkit.*  %{buildroot}/usr/share/gettext/its
-## make_install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -199,8 +195,6 @@ cp gettext/its/polkit.*  %{buildroot}/usr/share/gettext/its
 /usr/share/dbus-1/services/org.gtk.vfs.MTPVolumeMonitor.service
 /usr/share/dbus-1/services/org.gtk.vfs.Metadata.service
 /usr/share/dbus-1/services/org.gtk.vfs.UDisks2VolumeMonitor.service
-/usr/share/gettext/its/polkit.its
-/usr/share/gettext/its/polkit.loc
 /usr/share/glib-2.0/schemas/org.gnome.system.gvfs.enums.xml
 /usr/share/glib-2.0/schemas/org.gnome.system.smb.gschema.xml
 /usr/share/gvfs/mounts/afp-browse.mount
