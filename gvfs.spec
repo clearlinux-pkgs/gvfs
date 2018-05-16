@@ -4,7 +4,7 @@
 #
 Name     : gvfs
 Version  : 1.36.1
-Release  : 34
+Release  : 35
 URL      : https://download.gnome.org/sources/gvfs/1.36/gvfs-1.36.1.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.36/gvfs-1.36.1.tar.xz
 Summary  : No detailed summary available
