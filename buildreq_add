@@ -12,3 +12,4 @@ libgphoto2-dev
 openssh
 colord
 gvfs-dev
+fuse-dev
