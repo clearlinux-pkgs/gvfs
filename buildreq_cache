@@ -1,5 +1,8 @@
-1.38.0
+1.38.1
+libgudev-dev
+libsecret-dev
 pkgconfig(fuse)
 pkgconfig(gudev-1.0)
 pkgconfig(libsecret-unstable)
 pkgconfig(udisks2)
+udisks2-dev

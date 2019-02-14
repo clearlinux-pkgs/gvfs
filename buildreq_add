@@ -13,3 +13,4 @@ openssh
 colord
 gvfs-dev
 fuse-dev
+libcap-dev
