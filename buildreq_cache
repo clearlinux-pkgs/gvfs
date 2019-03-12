@@ -1,4 +1,4 @@
-1.38.1
+1.40.0
 libgudev-dev
 libsecret-dev
 pkgconfig(fuse)

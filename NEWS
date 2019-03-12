@@ -1,5 +1,50 @@
-Major changes in 1.38.1
+Major changes in 1.40.0
+=======================
+* No changes
+
+Major changes in 1.39.92
 ========================
+* client: Fix mount info cache invalidation
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.39.91
+========================
+* smb: Do not show password prompt when using winbind ccache
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.39.90
+========================
+* sftp: Always use port 22 if not specified
+* mtp: Don't retry reading an event after failure
+* admin: Prevent access if any authentication agent isn't available (CVE-2019-3827)
+* build: Several meson improvements
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.39.4
+=======================
+* keyring: Prefer the most recent item
+* afp: Try to find credentials even if user is not specified
+* dav: Try authenticate again even if 403 was returned
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.39.3
+=======================
+* udisks2: Improve handling of mounts which doesn't point into fs root
+* udisks2: Restore support of comment=x-gvfs-* option
+* daemon: Prevent spawning new daemons if outgoing operation exists
+* common: Prevent crashes on invalid autorun file
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.39.1
+=======================
+* google: Rework cache for better performance
+* google: Add support for files with multiple parents
+* udisks2: Add a new volume class `loop`
 * gphoto2: Fix mounting for devices with special chars in ID_SERIAL
 * mtp: Fix mounting for devices with special chars in ID_SERIAL
 * smbbrowse: Force NT1 protocol version for workgroup support
