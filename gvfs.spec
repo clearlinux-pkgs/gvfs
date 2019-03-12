@@ -4,10 +4,10 @@
 #
 Name     : gvfs
 Version  : 1.38.1
-Release  : 39
+Release  : 40
 URL      : https://download.gnome.org/sources/gvfs/1.38/gvfs-1.38.1.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.38/gvfs-1.38.1.tar.xz
-Summary  : No detailed summary available
+Summary  : Virtual filesystem implementation for GIO
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-2.0
 Requires: gvfs-config = %{version}-%{release}
@@ -35,7 +35,10 @@ BuildRequires : openssh
 BuildRequires : pkgconfig(fuse)
 BuildRequires : pkgconfig(goa-1.0)
 BuildRequires : pkgconfig(gtk+-3.0)
+BuildRequires : pkgconfig(gudev-1.0)
 BuildRequires : pkgconfig(libgdata)
+BuildRequires : pkgconfig(libsecret-unstable)
+BuildRequires : pkgconfig(udisks2)
 BuildRequires : python3-dev
 BuildRequires : samba-dev
 BuildRequires : udisks2-dev
@@ -73,6 +76,7 @@ Group: Development
 Requires: gvfs-lib = %{version}-%{release}
 Requires: gvfs-data = %{version}-%{release}
 Provides: gvfs-devel = %{version}-%{release}
+Requires: gvfs = %{version}-%{release}
 
 %description dev
 dev components for the gvfs package.
@@ -132,7 +136,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1550175461
+export SOURCE_DATE_EPOCH=1552360031
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
