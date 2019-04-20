@@ -4,7 +4,7 @@
 #
 Name     : gvfs
 Version  : 1.40.1
-Release  : 42
+Release  : 43
 URL      : https://download.gnome.org/sources/gvfs/1.40/gvfs-1.40.1.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.40/gvfs-1.40.1.tar.xz
 Summary  : Virtual filesystem implementation for GIO
