@@ -4,10 +4,10 @@
 #
 Name     : gvfs
 Version  : 1.40.1
-Release  : 44
+Release  : 45
 URL      : https://download.gnome.org/sources/gvfs/1.40/gvfs-1.40.1.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.40/gvfs-1.40.1.tar.xz
-Summary  : Virtual filesystem implementation for GIO
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-2.0
 Requires: gvfs-config = %{version}-%{release}
@@ -43,6 +43,8 @@ BuildRequires : python3-dev
 BuildRequires : samba-dev
 BuildRequires : udisks2-dev
 BuildRequires : valgrind
+Patch1: CVE-2019-12448.patch
+Patch2: CVE-2019-12449.patch
 
 %description
 # GVfs
@@ -128,20 +130,23 @@ services components for the gvfs package.
 
 %prep
 %setup -q -n gvfs-1.40.1
+%patch1 -p1
+%patch2 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557013838
+export SOURCE_DATE_EPOCH=1559170373
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Os -fcf-protection=full -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong "
-export FCFLAGS="$CFLAGS -O3 -Os -fcf-protection=full -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong "
-export FFLAGS="$CFLAGS -O3 -Os -fcf-protection=full -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong "
-export CXXFLAGS="$CXXFLAGS -O3 -Os -fcf-protection=full -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong "
+export CFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong -mzero-caller-saved-regs=used "
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain -Dadmin=false -Ddnssd=false -Dafc=false -Dbluray=false -Dcdda=false -Dnfs=false  builddir
 ninja -v -C builddir
 
