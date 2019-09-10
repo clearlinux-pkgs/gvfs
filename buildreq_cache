@@ -1,4 +1,5 @@
-1.40.2
+1.42.0
+gsettings-desktop-schemas
 libgudev-dev
 libsecret-dev
 pkgconfig(fuse)

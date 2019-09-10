@@ -1,4 +1,34 @@
-Major changes in 1.40.2
+Major changes in 1.42.0
+=======================
+* Translation updates
+
+Major changes in 1.41.91
+========================
+* fuse: Remove max_write limit
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.41.90
+========================
+* udisks2: Change display name for crypto_unknown devices
+* google: Disable deletion of non-empty directories
+* google: Fix crashes when deleting if the file isn't found
+* google: Fix issue with stale entries remaining after rename operation
+* build: Define gvfs_rpath for libgvfsdaemon.so
+* proxy: Don't leak a GVfsDBusDaemon
+* Translation updates
+
+Major changes in 1.41.4
+=======================
+* google: Do not enumerate volatile entries if title matches id
+* build: Add dependency on gsettings-desktop-schemas
+* daemon/udisks2: Handle lockdown option to disable writing
+* fuse: Define RENAME_* macros when they are not defined
+* google: Check ownership in is_owner() without additional HTTP request
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.41.3
 =======================
 * daemon: Only accept EXTERNAL authentication (CVE-2019-12795)
 * daemon: Check that the connecting client is the same user (CVE-2019-12795)
@@ -6,14 +36,24 @@ Major changes in 1.40.2
 * admin: Use fsuid to ensure correct file ownership (CVE-2019-12447)
 * admin: Allow changing file owner (CVE-2019-12447)
 * admin: Add query_info_on_read/write functionality (CVE-2019-12448)
-* afc: Remove assumptions about length of device UUID to support new devices
-* gmountsource: Fix deadlocks in synchronous API
-* afp: Fix afp backend crash when no username supplied
 * Translation updates
 
-Major changes in 1.40.1
+Major changes in 1.41.2
 =======================
-* Revert "sftp: Always use port 22 if not specified"
+* build: Several meson improvements
+* build: Bump required meson version to 0.50.0
+* google: Support deleting shared Google Drive files
+* admin: Prevent core dumps when daemon is manually started
+* afc: Remove assumptions about length of device UUID to support new devices
+* Several smaller bugfixes
+* Translation updates
+
+Major changes in 1.41.1
+=======================
+* gmountsource: Fix deadlocks in synchronous API
+* fuse: Adapt gvfsd-fuse to use fuse 3.x
+* afp: Fix afp backend crash when no username supplied
+* daemon: Unify some translatable strings
 * Translation updates
 
 Major changes in 1.40.0
