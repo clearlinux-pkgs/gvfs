@@ -4,10 +4,10 @@
 #
 Name     : gvfs
 Version  : 1.42.2
-Release  : 52
+Release  : 53
 URL      : https://download.gnome.org/sources/gvfs/1.42/gvfs-1.42.2.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.42/gvfs-1.42.2.tar.xz
-Summary  : Virtual filesystem implementation for GIO
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-2.0
 Requires: gvfs-config = %{version}-%{release}
@@ -39,7 +39,9 @@ BuildRequires : pkgconfig(gtk+-3.0)
 BuildRequires : pkgconfig(gudev-1.0)
 BuildRequires : pkgconfig(libgdata)
 BuildRequires : pkgconfig(libsecret-unstable)
+BuildRequires : pkgconfig(polkit-gobject-1)
 BuildRequires : pkgconfig(udisks2)
+BuildRequires : polkit-dev
 BuildRequires : python3-dev
 BuildRequires : samba-dev
 BuildRequires : udisks2-dev
@@ -76,7 +78,6 @@ Group: Development
 Requires: gvfs-lib = %{version}-%{release}
 Requires: gvfs-data = %{version}-%{release}
 Provides: gvfs-devel = %{version}-%{release}
-Requires: gvfs = %{version}-%{release}
 Requires: gvfs = %{version}-%{release}
 
 %description dev
@@ -137,17 +138,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1574453724
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1580752937
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Os -fcf-protection=full -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong "
-export FCFLAGS="$CFLAGS -O3 -Os -fcf-protection=full -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong "
-export FFLAGS="$CFLAGS -O3 -Os -fcf-protection=full -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong "
-export CXXFLAGS="$CXXFLAGS -O3 -Os -fcf-protection=full -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong "
-CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dadmin=false -Ddnssd=false -Dafc=false -Dbluray=false -Dcdda=false -Dnfs=false  builddir
+export CFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong -mzero-caller-saved-regs=used "
+CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Ddnssd=false -Dafc=false -Dbluray=false -Dcdda=false -Dnfs=false  builddir
 ninja -v -C builddir
 
 %install
@@ -175,6 +175,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/share/dbus-1/services/org.gtk.vfs.UDisks2VolumeMonitor.service
 /usr/share/glib-2.0/schemas/org.gnome.system.gvfs.enums.xml
 /usr/share/glib-2.0/schemas/org.gnome.system.smb.gschema.xml
+/usr/share/gvfs/mounts/admin.mount
 /usr/share/gvfs/mounts/afp-browse.mount
 /usr/share/gvfs/mounts/afp.mount
 /usr/share/gvfs/mounts/archive.mount
@@ -199,6 +200,8 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/share/gvfs/remote-volume-monitors/gphoto2.monitor
 /usr/share/gvfs/remote-volume-monitors/mtp.monitor
 /usr/share/gvfs/remote-volume-monitors/udisks2.monitor
+/usr/share/polkit-1/actions/org.gtk.vfs.file-operations.policy
+/usr/share/polkit-1/rules.d/org.gtk.vfs.file-operations.rules
 
 %files dev
 %defattr(-,root,root,-)
@@ -219,6 +222,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/libexec/gvfs-mtp-volume-monitor
 /usr/libexec/gvfs-udisks2-volume-monitor
 /usr/libexec/gvfsd
+/usr/libexec/gvfsd-admin
 /usr/libexec/gvfsd-afp
 /usr/libexec/gvfsd-afp-browse
 /usr/libexec/gvfsd-archive
