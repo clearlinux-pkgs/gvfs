@@ -1,9 +1,39 @@
-Major changes in 1.42.2
+Major changes in 1.44.0
+=======================
+* Translation updates
+
+Major changes in 1.43.92
+========================
+* Translation updates
+
+Major changes in 1.43.91
+========================
+* build: Fix login_tty detection on systems without libutil
+* afc: Handle permission denied error
+* test: Several smaller fixes
+* Translation updates
+
+Major changes in 1.43.90
+========================
+* google: Add support for move and copy operations
+* google: Several smaller bugfixes and enhancements
+* goa: Add support for certificate prompts
+* sftp: Fix file ownership when replacing
+* dnssd: Prevent crashes after releasing resolver
+* fuse: Prevent abortions if modified time is not set
+* Translation updates
+
+Major changes in 1.43.2
 =======================
 * gdbus: Add workaround for deadlocks when cancelling jobs
+* smb: Improve enumeration performance
+* test: Port to python3-twisted
 
-Major changes in 1.42.1
+Major changes in 1.43.1
 =======================
+* Don't set a content-type that isn't certain
+* Replace usage of deprecated GTimeVal by GDateTime
+* dav: Add support for services with IPv6 link-local addresses
 * dav: Fix mounting when 403 is returned for the parent folder
 * Revert "sftp: Always use port 22 if not specified"
 * Translation updates

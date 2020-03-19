@@ -1,8 +1,6 @@
-1.42.2
-gsettings-desktop-schemas
+1.44.0
 libgudev-dev
 libsecret-dev
-pkgconfig(fuse)
 pkgconfig(gudev-1.0)
 pkgconfig(libsecret-unstable)
 pkgconfig(polkit-gobject-1)
