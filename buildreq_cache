@@ -1,4 +1,4 @@
-1.44.0
+1.44.1
 libgudev-dev
 libsecret-dev
 pkgconfig(gudev-1.0)
