@@ -4,7 +4,7 @@
 #
 Name     : gvfs
 Version  : 1.44.1
-Release  : 56
+Release  : 57
 URL      : https://download.gnome.org/sources/gvfs/1.44/gvfs-1.44.1.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.44/gvfs-1.44.1.tar.xz
 Summary  : No detailed summary available
@@ -19,6 +19,7 @@ Requires: gvfs-locales = %{version}-%{release}
 Requires: gvfs-services = %{version}-%{release}
 BuildRequires : buildreq-gnome
 BuildRequires : buildreq-meson
+BuildRequires : bzip2
 BuildRequires : colord
 BuildRequires : fuse-dev
 BuildRequires : gvfs-dev
@@ -43,6 +44,7 @@ BuildRequires : pkgconfig(udisks2)
 BuildRequires : polkit-dev
 BuildRequires : python3-dev
 BuildRequires : samba-dev
+BuildRequires : udisks2
 BuildRequires : udisks2-dev
 BuildRequires : valgrind
 
@@ -128,6 +130,18 @@ Group: Systemd services
 services components for the gvfs package.
 
 
+%package tests
+Summary: tests components for the gvfs package.
+Group: Default
+Requires: gvfs = %{version}-%{release}
+Requires: bzip2
+Requires: python3-core
+Requires: udisks2
+
+%description tests
+tests components for the gvfs package.
+
+
 %prep
 %setup -q -n gvfs-1.44.1
 cd %{_builddir}/gvfs-1.44.1
@@ -137,7 +151,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1586238142
+export SOURCE_DATE_EPOCH=1588697521
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -146,7 +160,7 @@ export CFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sect
 export FCFLAGS="$FFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong -mzero-caller-saved-regs=used "
 export FFLAGS="$FFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong -mzero-caller-saved-regs=used "
 export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong -mzero-caller-saved-regs=used "
-CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Ddnssd=false -Dafc=false -Dbluray=false -Dcdda=false -Dnfs=false  builddir
+CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Ddnssd=false -Dafc=false -Dbluray=false -Dcdda=false -Dnfs=false -Dinstalled_tests=true  builddir
 ninja -v -C builddir
 
 %install
@@ -256,6 +270,28 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/lib/systemd/user/gvfs-metadata.service
 /usr/lib/systemd/user/gvfs-mtp-volume-monitor.service
 /usr/lib/systemd/user/gvfs-udisks2-volume-monitor.service
+
+%files tests
+%defattr(-,root,root,-)
+/usr/libexec/installed-tests/gvfs/files/bogus-cd.iso.bz2
+/usr/libexec/installed-tests/gvfs/files/joliet.iso.bz2
+/usr/libexec/installed-tests/gvfs/files/powershot.ioctl
+/usr/libexec/installed-tests/gvfs/files/powershot.umockdev
+/usr/libexec/installed-tests/gvfs/files/source-gphoto/IMG_0001.jpg
+/usr/libexec/installed-tests/gvfs/files/source-gphoto/IMG_0002.jpg
+/usr/libexec/installed-tests/gvfs/files/ssh_host_rsa_key
+/usr/libexec/installed-tests/gvfs/files/ssh_host_rsa_key.pub
+/usr/libexec/installed-tests/gvfs/files/testcert.pem
+/usr/libexec/installed-tests/gvfs/files/vfat.img.bz2
+/usr/libexec/installed-tests/gvfs/gphoto2.monitor
+/usr/libexec/installed-tests/gvfs/gvfs-test
+/usr/libexec/installed-tests/gvfs/org.gtk.vfs.Daemon.service
+/usr/libexec/installed-tests/gvfs/org.gtk.vfs.GPhoto2VolumeMonitor.service
+/usr/libexec/installed-tests/gvfs/org.gtk.vfs.Metadata.service
+/usr/libexec/installed-tests/gvfs/org.gtk.vfs.UDisks2VolumeMonitor.service
+/usr/libexec/installed-tests/gvfs/session.conf
+/usr/libexec/installed-tests/gvfs/udisks2.monitor
+/usr/share/installed-tests/gvfs/gvfs-all-tests.test
 
 %files locales -f gvfs.lang
 %defattr(-,root,root,-)
