@@ -1,31 +1,3 @@
-Major changes in 1.46.0
-=======================
-* No changes
-
-Major changes in 1.45.92
-========================
-* build: Link libgvfscommon to libmetadata
-* Translation updates
-
-Major changes in 1.45.90
-========================
-* trash: Add support for x-gvfs-notrash option to ignore mounts
-* recent: Port to GDateTime
-* Translation updates
-
-Major changes in 1.45.3
-=======================
-* client: Add support for zone identifiers in IPv6 addresses
-* afc: Add support for libplist-2.2
-* Translation updates
-
-Major changes in 1.45.2
-=======================
-* metadata: Emit D-Bus signal when metadata are modified
-* sftp: Preserve timestamps during copy and move operations
-* dav: Add support for Negotiate and NTLM authentication
-* Translation updates
-
 Major changes in 1.44.1
 =======================
 * udisks2: Fix several memory leaks
