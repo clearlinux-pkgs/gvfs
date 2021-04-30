@@ -1,6 +1,10 @@
 # This file contains additional pkgconfig build requirements that did
 # not get picked up automatically. One name per line, no whitespace.
-goa-1.0
-libgdata
-gtk+-3.0
 fuse
+goa-1.0
+gtk+-3.0
+gudev-1.0
+libgdata
+libsecret-unstable
+polkit-gobject-1
+udisks2

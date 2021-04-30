@@ -1,9 +1,0 @@
-1.48.0
-libgudev-dev
-libsecret-dev
-pkgconfig(gudev-1.0)
-pkgconfig(libsecret-unstable)
-pkgconfig(polkit-gobject-1)
-pkgconfig(udisks2)
-polkit-dev
-udisks2-dev
