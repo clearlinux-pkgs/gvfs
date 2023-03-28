@@ -5,7 +5,7 @@
 #
 Name     : gvfs
 Version  : 1.50.4
-Release  : 76
+Release  : 77
 URL      : https://download.gnome.org/sources/gvfs/1.50/gvfs-1.50.4.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.50/gvfs-1.50.4.tar.xz
 Summary  : No detailed summary available
@@ -149,7 +149,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679693961
+export SOURCE_DATE_EPOCH=1680036524
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
