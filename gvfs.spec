@@ -4,10 +4,10 @@
 # Using build pattern: meson
 #
 Name     : gvfs
-Version  : 1.50.6
-Release  : 79
-URL      : https://download.gnome.org/sources/gvfs/1.50/gvfs-1.50.6.tar.xz
-Source0  : https://download.gnome.org/sources/gvfs/1.50/gvfs-1.50.6.tar.xz
+Version  : 1.52.0
+Release  : 80
+URL      : https://download.gnome.org/sources/gvfs/1.52/gvfs-1.52.0.tar.xz
+Source0  : https://download.gnome.org/sources/gvfs/1.52/gvfs-1.52.0.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-3.0 LGPL-2.0
@@ -142,10 +142,10 @@ tests components for the gvfs package.
 
 
 %prep
-%setup -q -n gvfs-1.50.6
-cd %{_builddir}/gvfs-1.50.6
+%setup -q -n gvfs-1.52.0
+cd %{_builddir}/gvfs-1.52.0
 pushd ..
-cp -a gvfs-1.50.6 buildavx2
+cp -a gvfs-1.52.0 buildavx2
 popd
 
 %build
@@ -153,7 +153,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1691604333
+export SOURCE_DATE_EPOCH=1695682457
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
