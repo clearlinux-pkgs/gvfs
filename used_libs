@@ -2,7 +2,7 @@ libarchive.so.13
 libc.so.6
 libfuse3.so.3
 libgcc_s.so.1
-libgcr-base-3.so.1
+libgcr-4.so.4
 libgcrypt.so.20
 libgdata.so.22
 libgio-2.0.so.0
@@ -12,6 +12,7 @@ libgobject-2.0.so.0
 libgphoto2.so.6
 libgphoto2_port.so.12
 libgudev-1.0.so.0
+libmsgraph-0.so.1
 libmtp.so.9
 libpolkit-gobject-1.so.0
 libsecret-1.so.0
