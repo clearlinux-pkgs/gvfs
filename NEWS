@@ -1,10 +1,30 @@
-Major changes in 1.54.2
+Major changes in 1.56.0
+=======================
+* udisks2: Run update synchronously for internal changes (Ondrej Holy)
+* onedrive: Set name of drive root (Jan-Michael Brummer)
+* onedrive: Handle multiple drives with same IDs (Jan-Michael Brummer)
+* Translation updates (GNOME Translation Project contributors)
+
+Major changes in 1.55.90
+========================
+* fuse: Fill stat info during readdir to improve performance (Ondrej Holy, Jan Palus)
+* smb: Fix access over FUSE when root dir is not accessible (rong wang)
+* onedrive: Guess mime type locally if not set by the server (Jan-Michael Brummer)
+* trash: Add support for x-gvfs-trash mount option (Ondrej Holy)
+* onedrive: Add seek on write functionality (Jan-Michael Brummer)
+* Translation updates (GNOME Translation Project contributors)
+
+Major changes in 1.55.1
 =======================
 * ftp: Change cwd to root before renaming to prevent failures (rong wang)
 * udisks2: Ignore autofs mounts to prevent duplicated entries (Ondrej Holy)
+* udisks2: Show only direct descendats of /media unless $USER (Ondrej Holy)
+* ftp: Obtain correct modification time for old files using MDTM cmd (Ondrej Holy)
 * ftp: Use timegm instead of mktime to not shift dates by timezone (Ondrej Holy)
+* ftp: Add support for setting mtime attribute using MFMT cmd (Ondrej Holy)
 * ftp: Preserve mtime when copying to local (Ondrej Holy)
-* build: Add deprecated_apis option to control installation of headers (Ondrej Holy)
+* build: Add deprecated_apis option and disable installation of headers (Ondrej Holy)
+* udisks2: Do not schedule update if pending already to improve performance (Ondrej Holy)
 * dav: Disable query_info_on_read method to fix mtime preservation (Ondrej Holy)
 * network: Disable usage of smbbrowse backend by default (Ondrej Holy)
 * smbbrowse: Don't enforce NT1 to fix mounting in certain cases (Ondrej Holy)
