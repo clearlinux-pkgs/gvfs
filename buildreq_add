@@ -11,6 +11,5 @@ samba-dev
 libgphoto2-dev
 openssh
 colord
-gvfs-dev
 fuse-dev
 libcap-dev

@@ -4,3 +4,4 @@
 -Dcdda=false
 -Dnfs=false
 -Dinstalled_tests=true
+-Ddevel_utils=true
