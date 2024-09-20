@@ -5,3 +5,4 @@
 -Dnfs=false
 -Dinstalled_tests=true
 -Ddevel_utils=true
+-Ddeprecated_apis=true

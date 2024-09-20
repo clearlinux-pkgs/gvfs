@@ -7,7 +7,7 @@
 #
 Name     : gvfs
 Version  : 1.56.0
-Release  : 87
+Release  : 88
 URL      : https://download.gnome.org/sources/gvfs/1.56/gvfs-1.56.0.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.56/gvfs-1.56.0.tar.xz
 Summary  : No detailed summary available
@@ -72,6 +72,18 @@ Group: Data
 
 %description data
 data components for the gvfs package.
+
+
+%package dev
+Summary: dev components for the gvfs package.
+Group: Development
+Requires: gvfs-lib = %{version}-%{release}
+Requires: gvfs-data = %{version}-%{release}
+Provides: gvfs-devel = %{version}-%{release}
+Requires: gvfs = %{version}-%{release}
+
+%description dev
+dev components for the gvfs package.
 
 
 %package lib
@@ -144,7 +156,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1726842203
+export SOURCE_DATE_EPOCH=1726842550
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -166,7 +178,8 @@ meson --libdir=lib64 --prefix=/usr --buildtype=plain -Ddnssd=false \
 -Dcdda=false \
 -Dnfs=false \
 -Dinstalled_tests=true \
--Ddevel_utils=true  builddir
+-Ddevel_utils=true \
+-Ddeprecated_apis=true  builddir
 ninja -v -C builddir
 GOAMD64=v3
 CFLAGS="$CFLAGS -march=x86-64-v3 -Wl,-z,x86-64-v3 " CXXFLAGS="$CXXFLAGS -march=x86-64-v3 -Wl,-z,x86-64-v3 " LDFLAGS="$LDFLAGS -march=x86-64-v3 " meson --libdir=lib64 --prefix=/usr --buildtype=plain -Ddnssd=false \
@@ -175,7 +188,8 @@ CFLAGS="$CFLAGS -march=x86-64-v3 -Wl,-z,x86-64-v3 " CXXFLAGS="$CXXFLAGS -march=x
 -Dcdda=false \
 -Dnfs=false \
 -Dinstalled_tests=true \
--Ddevel_utils=true  builddiravx2
+-Ddevel_utils=true \
+-Ddeprecated_apis=true  builddiravx2
 ninja -v -C builddiravx2
 
 %install
@@ -251,6 +265,11 @@ DESTDIR=%{buildroot} ninja -C builddir install
 /usr/share/gvfs/remote-volume-monitors/udisks2.monitor
 /usr/share/polkit-1/actions/org.gtk.vfs.file-operations.policy
 /usr/share/polkit-1/rules.d/org.gtk.vfs.file-operations.rules
+
+%files dev
+%defattr(-,root,root,-)
+/usr/include/gvfs-client/gvfs/gvfsurimapper.h
+/usr/include/gvfs-client/gvfs/gvfsuriutils.h
 
 %files lib
 %defattr(-,root,root,-)
