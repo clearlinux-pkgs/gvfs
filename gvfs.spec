@@ -7,7 +7,7 @@
 #
 Name     : gvfs
 Version  : 1.56.1
-Release  : 89
+Release  : 90
 URL      : https://download.gnome.org/sources/gvfs/1.56/gvfs-1.56.1.tar.xz
 Source0  : https://download.gnome.org/sources/gvfs/1.56/gvfs-1.56.1.tar.xz
 Summary  : No detailed summary available
